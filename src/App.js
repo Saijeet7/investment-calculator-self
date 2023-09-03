@@ -1,7 +1,11 @@
+import React from "react";
+import Header from "./components/Header";
+
 function App() {
+  const mainTitle = "Investment Calculator";
   return (
-    <div>
-    <h1>Hello World</h1>
+    <div className="container">
+      <Header title={mainTitle} />
     </div>
   );
 }
