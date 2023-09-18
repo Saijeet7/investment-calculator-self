@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import InvestmentForm from "./components/InvestmentForm";
+import Result from "./components/Result";
 
 function App() {
   const mainTitle = "Investment Calculator";
@@ -8,6 +9,7 @@ function App() {
     <div className="container">
       <Header title={mainTitle} />
       <InvestmentForm />
+      <Result />
     </div>
   );
 }
