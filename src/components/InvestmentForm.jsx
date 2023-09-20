@@ -1,29 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
+const defaultValue = {
+  current: "100",
+  yearly: "120",
+  expected: "3",
+  duration: 3,
+};
+
 const InvestmentForm = () => {
+  const [inputValue, setInputValue] = useState(defaultValue);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("Submit");
+  };
+
+  const resetHandler = (e) => {
+    e.preventDefault();
+    setInputValue(defaultValue);
+  };
+
+  const changeHandler = (input, value) => {
+    setInputValue((prevValue) => {
+      return { ...prevValue, [input]: +value };
+    });
+  };
+
   return (
-    <Form>
+    <Form onSubmit={submitHandler}>
       <FormBody>
         <FormItem>
           <Label for="current">Current Savings($)</Label>
-          <Input type="number" id="current" placeholder="100" />
+          <Input
+            onChange={(event) => changeHandler("current", event.target.value)}
+            type="number"
+            id="current"
+            value={inputValue["current"]}
+          />
         </FormItem>
         <FormItem>
           <Label for="yearly">Yearly Savings($)</Label>
-          <Input type="number" id="yearly" placeholder="120" />
+          <Input
+            onChange={(event) => changeHandler("yearly", event.target.value)}
+            type="number"
+            id="yearly"
+            value={inputValue["yearly"]}
+          />
         </FormItem>
         <FormItem>
           <Label for="Expected">Expected Interest(%/year)</Label>
-          <Input type="number" id="Expected" placeholder="3" />
+          <Input
+            onChange={(event) => changeHandler("expected", event.target.value)}
+            type="number"
+            id="expected"
+            value={inputValue["expected"]}
+          />
         </FormItem>
         <FormItem>
           <Label for="duration">Investment Duration(Year)</Label>
-          <Input type="number" id="duration" placeholder="3" />
+          <Input
+            type="number"
+            id="duration"
+            onChange={(event) => changeHandler("duration", event.target.value)}
+            value={inputValue["duration"]}
+          />
         </FormItem>
       </FormBody>
       <FormFooter>
-        <ButtonAlt>Reset</ButtonAlt>
+        <ButtonAlt type="reset" onClick={resetHandler}>
+          Reset
+        </ButtonAlt>
         <Button type="submit">Calculate</Button>
       </FormFooter>
     </Form>
