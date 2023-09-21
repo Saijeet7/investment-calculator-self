@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/investment-calculator-self/static/css/main.c4894bf0.css",
+    "main.js": "/investment-calculator-self/static/js/main.6766e011.js",
+    "index.html": "/investment-calculator-self/index.html",
+    "main.c4894bf0.css.map": "/investment-calculator-self/static/css/main.c4894bf0.css.map",
+    "main.6766e011.js.map": "/investment-calculator-self/static/js/main.6766e011.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4894bf0.css",
+    "static/js/main.6766e011.js"
+  ]
+}
