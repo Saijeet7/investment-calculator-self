@@ -18,6 +18,9 @@ const Title = styled.h1`
   color: #fff;
   font-size: 48px;
   text-align: center;
+  @media screen and (max-width: 767px) {
+    font-size: 30px;
+  }
 `;
 
 const Wrap = styled.header`
@@ -25,4 +28,7 @@ const Wrap = styled.header`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 40px;
+  }
 `;

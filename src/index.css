@@ -13,6 +13,9 @@ body {
   background: #42474d;
   color: #d9c9ee;
   padding-bottom: 200px;
+  @media screen and (max-width: 767px) {
+    padding-bottom: 50px;
+  }
 }
 
 /* reset.css */
@@ -71,6 +74,9 @@ ul {
   align-items: center;
   flex-direction: column;
   margin-top: 100px;
+  @media screen and (max-width: 767px) {
+    margin-top: 60px;
+  }
 }
 
 .invisibleLabel {

@@ -86,6 +86,10 @@ const Form = styled.form`
   align-item: center;
   gap: 40px;
   margin-bottom: 60px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    margin-bottom: 40px;
+  }
 `;
 
 const FormBody = styled.div`
@@ -96,6 +100,11 @@ const FormBody = styled.div`
   display: grid;
   grid-template-columns: 240px 240px;
   gap: 30px 35px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 40px 20px; 
+  }
 `;
 
 const FormItem = styled.div`
@@ -124,6 +133,11 @@ const Input = styled.input`
   border-radius: 10px;
   background: #212326;
   border: none;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+  }
 `;
 
 const FormFooter = styled.div`

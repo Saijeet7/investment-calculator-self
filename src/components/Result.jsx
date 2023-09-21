@@ -38,10 +38,10 @@ const Result = (props) => {
             <Head>Total Saving</Head>
             <Head>Interest (Year)</Head>
             <Head>Total Interest</Head>
-            <Head>Investmented Capital</Head>
+            <Head>Capital</Head>
           </Row>
         </TableHead>
-        <TabelBody>{output}</TabelBody>
+        <TableBody>{output}</TableBody>
       </Wrapper>
     </React.Fragment>
   );
@@ -53,11 +53,18 @@ const Wrapper = styled.table`
   padding: 30px;
   border-radius: 5px;
   background: #24262a;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    padding: 10px;
+  }
 `;
 
 const TableHead = styled.thead`
   margin-bottom: 10px;
-  firs
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    display: block;
+  }
 `;
 
 const Row = styled.tr`
@@ -65,6 +72,10 @@ const Row = styled.tr`
   flex-wrap: wrap;
   gap: 30px;
   margin-bottom: 15px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    gap: 10px;
+  }
 `;
 
 const Head = styled.th`
@@ -78,9 +89,16 @@ const Head = styled.th`
   &:first-of-type {
     width: 40px;
   }
+  @media screen and (max-width: 900px) {
+    width: calc(20% - 8px);
+    font-size: 16px;
+  }
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
 `;
 
-const TabelBody = styled.tbody``;
+const TableBody = styled.tbody``;
 
 const Content = styled.td`
   color: #eceff2;
@@ -92,5 +110,9 @@ const Content = styled.td`
   text-align: right;
   &:first-of-type {
     width: 40px;
+  }
+  @media screen and (max-width: 900px) {
+    width: calc(20% - 8px);
+    font-size: 12px;
   }
 `;
