@@ -8,12 +8,13 @@ const defaultValue = {
   duration: 3,
 };
 
-const InvestmentForm = () => {
+const InvestmentForm = (props) => {
   const [inputValue, setInputValue] = useState(defaultValue);
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("Submit");
+    props.onCalcultae(inputValue);
   };
 
   const resetHandler = (e) => {
