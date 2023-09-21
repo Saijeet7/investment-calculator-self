@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const defaultValue = {
-  current: "100",
-  yearly: "120",
-  expected: "3",
+  current: 10000,
+  yearly: 1200,
+  expected: 7,
   duration: 3,
 };
 
@@ -13,8 +13,7 @@ const InvestmentForm = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log("Submit");
-    props.onCalcultae(inputValue);
+    props.onCalculate(inputValue);
   };
 
   const resetHandler = (e) => {
@@ -32,7 +31,7 @@ const InvestmentForm = (props) => {
     <Form onSubmit={submitHandler}>
       <FormBody>
         <FormItem>
-          <Label for="current">Current Savings($)</Label>
+          <Label htmlFor="current">Current Savings($)</Label>
           <Input
             onChange={(event) => changeHandler("current", event.target.value)}
             type="number"
@@ -41,7 +40,7 @@ const InvestmentForm = (props) => {
           />
         </FormItem>
         <FormItem>
-          <Label for="yearly">Yearly Savings($)</Label>
+          <Label htmlFor="yearly">Yearly Savings($)</Label>
           <Input
             onChange={(event) => changeHandler("yearly", event.target.value)}
             type="number"
@@ -50,7 +49,7 @@ const InvestmentForm = (props) => {
           />
         </FormItem>
         <FormItem>
-          <Label for="Expected">Expected Interest(%/year)</Label>
+          <Label htmlFor="Expected">Expected Interest(%/year)</Label>
           <Input
             onChange={(event) => changeHandler("expected", event.target.value)}
             type="number"
@@ -59,7 +58,7 @@ const InvestmentForm = (props) => {
           />
         </FormItem>
         <FormItem>
-          <Label for="duration">Investment Duration(Year)</Label>
+          <Label htmlFor="duration">Investment Duration(Year)</Label>
           <Input
             type="number"
             id="duration"

@@ -1,7 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
 const Result = (props) => {
+  const output = props.result.map((result) => (
+    <Row key={result.year}>
+      <Content>{result.year}</Content>
+      <Content>{formatter.format(result.savingsEndOfYear)}</Content>
+      <Content>{formatter.format(result.yearlyInterest)}</Content>
+      <Content>
+        {formatter.format(
+          result.savingsEndOfYear -
+            props.intialInvestment -
+            result.yearlyContribution * result.year
+        )}
+      </Content>
+      <Content>
+        {formatter.format(
+          props.intialInvestment + result.yearlyContribution * result.year
+        )}
+      </Content>
+    </Row>
+  ));
+
   return (
     <React.Fragment>
       <Wrapper>
@@ -14,29 +41,7 @@ const Result = (props) => {
             <Head>Investmented Capital</Head>
           </Row>
         </TableHead>
-        <TabelBody>
-          <Row>
-            <Content>1</Content>
-            <Content>227</Content>
-            <Content>7</Content>
-            <Content>7</Content>
-            <Content>220</Content>
-          </Row>
-          <Row>
-            <Content>1</Content>
-            <Content>227</Content>
-            <Content>7</Content>
-            <Content>7</Content>
-            <Content>220</Content>
-          </Row>
-          <Row>
-            <Content>1</Content>
-            <Content>227</Content>
-            <Content>7</Content>
-            <Content>7</Content>
-            <Content>220</Content>
-          </Row>
-        </TabelBody>
+        <TabelBody>{output}</TabelBody>
       </Wrapper>
     </React.Fragment>
   );

@@ -8,14 +8,15 @@ function App() {
 
   const calculateHandler = (inputValue) => {
     setInputValue(inputValue);
+    console.log(yearlyData);
   };
 
   const yearlyData = [];
   if (inputValue) {
-    let currentSavings = inputValue["current"];
-    const yearlyContribution = inputValue["yearly"];
-    const expectedReturn = inputValue["expected"] / 100;
-    const duration = inputValue["duration"];
+    let currentSavings = +inputValue["current"];
+    const yearlyContribution = +inputValue["yearly"];
+    const expectedReturn = +inputValue["expected"] / 100;
+    const duration = +inputValue["duration"];
 
     for (let i = 0; i < duration; i++) {
       const yearlyInterest = currentSavings * expectedReturn;
@@ -35,7 +36,9 @@ function App() {
       <Header title={mainTitle} />
       <InvestmentForm onCalculate={calculateHandler} />
       {!inputValue && <p>No Investment Calculated</p>}
-      {inputValue && <Result result={yearlyData} />}
+      {inputValue && (
+        <Result result={yearlyData} intialInvestment={inputValue["current"]} />
+      )}
     </div>
   );
 }
